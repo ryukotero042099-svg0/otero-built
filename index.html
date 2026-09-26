@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#14212b">
+  <meta name="description" content="OTERO BUILT provides remodeling and roofing services in Indianapolis, Indiana. Quality workmanship. Built to Last.">
+  <link rel="icon" type="image/png" href="assets/oterobuilt-mark.png">
+  <title>OTERO BUILT | Remodeling & Roofing in Indianapolis, IN</title>
+  <style>
+    :root {
+      --ink: #17232c;
+      --muted: #68747c;
+      --paper: #f5f4f0;
+      --white: #fff;
+      --navy: #14212b;
+      --navy2: #203543;
+      --orange: #eb713d;
+      --orange-light: #ff9b6b;
+      --line: #e0e2df;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.55; }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    .wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    .topbar { color: #d8e0e3; background: #0d171e; font-size: .76rem; letter-spacing: .045em; }
+    .topbar-inner { min-height: 36px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .topbar a { color: #fff; text-decoration: none; }
+    .topbar-location { display: inline-flex; align-items: center; gap: 8px; }
+    .pin { color: var(--orange-light); font-size: 1rem; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(245,244,240,.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(23,35,44,.09); }
+    .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); }
+    .brand-mark { width: 48px; height: 48px; display: block; flex: 0 0 auto; }
+    .brand-mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    .brand-name { display: block; font-size: .88rem; font-weight: 900; letter-spacing: .1em; line-height: 1.05; }
+    .brand-line { display: flex; align-items: baseline; gap: 7px; }
+    .brand-built { color: var(--orange); }
+    .brand-name small { display: block; margin-top: 5px; font-size: .53rem; letter-spacing: .22em; font-weight: 800; color: #647078; }
+    .nav-right, .nav-links { display: flex; align-items: center; }
+    .nav-right { gap: 24px; }
+    .nav-links { gap: 27px; }
+    .nav-links a { text-decoration: none; color: #46545b; font-size: .86rem; font-weight: 650; }
+    .nav-links a:hover { color: var(--orange); }
+    .lang-switch { display: flex; align-items: center; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 999px; }
+    .lang-switch button { border: 0; padding: 5px 8px; background: transparent; border-radius: 999px; color: #69767d; font-size: .7rem; font-weight: 800; cursor: pointer; }
+    .lang-switch button.active { background: var(--navy); color: white; }
+    .btn { min-height: 48px; padding: 0 20px; border: 0; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-size: .85rem; font-weight: 800; text-decoration: none; cursor: pointer; transition: background .18s, transform .18s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-orange { color: #fff; background: var(--orange); }
+    .btn-orange:hover { background: #d95e2e; }
+    .btn-dark { color: #fff; background: var(--navy); }
+    .btn-dark:hover { background: var(--navy2); }
+    .btn-light { color: var(--navy); background: #fff; }
+    .btn-outline { color: white; border: 1px solid rgba(255,255,255,.38); background: transparent; }
+    .btn-small { min-height: 42px; padding: 0 15px; font-size: .8rem; }
+    .hero { position: relative; overflow: hidden; color: white; background: var(--navy); }
+    .hero::before { content: ""; position: absolute; width: 720px; height: 720px; top: -390px; right: -140px; border: 1px solid rgba(255,255,255,.08); border-radius: 50%; box-shadow: 0 0 0 60px rgba(255,255,255,.025), 0 0 0 130px rgba(255,255,255,.02); }
+    .hero::after { content: ""; position: absolute; inset: auto 0 0; height: 9px; background: var(--orange); }
+    .hero-grid { min-height: 600px; display: grid; grid-template-columns: 1.08fr .92fr; align-items: center; gap: 48px; padding-top: 68px; padding-bottom: 76px; position: relative; z-index: 1; }
+    .eyebrow { margin-bottom: 11px; color: var(--orange); font-size: .69rem; font-weight: 900; text-transform: uppercase; letter-spacing: .17em; }
+    .hero .eyebrow { color: #ff9b6b; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 700px; margin-bottom: 20px; font-size: clamp(3.5rem, 6.6vw, 6.1rem); line-height: .93; letter-spacing: -.065em; font-weight: 850; }
+    h1 em { color: var(--orange-light); font-family: var(--serif); font-weight: 500; letter-spacing: -.055em; }
+    .hero-copy { max-width: 540px; color: #c5cdd1; font-size: 1.03rem; }
+    .hero-actions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 11px; }
+    .hero-meta { margin-top: 29px; display: flex; flex-wrap: wrap; gap: 16px 24px; color: #bac4c8; font-size: .78rem; }
+    .hero-meta span { display: inline-flex; align-items: center; gap: 9px; }
+    .check { width: 17px; height: 17px; border: 1px solid #6c828a; border-radius: 50%; display: inline-grid; place-items: center; color: #ff9b6b; font-size: .65rem; }
+    .hero-visual { min-height: 410px; position: relative; display: grid; place-items: center; }
+    .visual-frame { width: 88%; height: 365px; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.18); background: linear-gradient(145deg,#56676b 0%,#334a54 45%,#1a2f3a 100%); box-shadow: 18px 18px 0 rgba(235,113,61,.86); }
+    .blueprint-grid { position: absolute; inset: 0; opacity: .4; background-image: linear-gradient(rgba(255,255,255,.11) 1px, transparent 1px), linear-gradient(90deg,rgba(255,255,255,.11) 1px, transparent 1px); background-size: 38px 38px; mask-image: linear-gradient(135deg,black,transparent 80%); }
+    .building-shape { position: absolute; left: 15%; right: 15%; bottom: 0; height: 77%; border: 2px solid rgba(255,255,255,.76); border-bottom: 0; background: linear-gradient(130deg,rgba(255,255,255,.15),rgba(7,22,30,.16)); clip-path: polygon(0 28%, 50% 0, 100% 28%, 100% 100%, 0 100%); }
+    .building-shape::before { content: ""; position: absolute; left: 14%; right: 14%; top: 34%; bottom: 0; background: repeating-linear-gradient(90deg,transparent 0 21%,rgba(255,255,255,.54) 21.3% 22%,transparent 22.3% 39%), repeating-linear-gradient(0deg,transparent 0 31%,rgba(255,255,255,.4) 31.3% 32%,transparent 32.3% 63%); }
+    .building-shape::after { content: ""; position: absolute; width: 23%; height: 37%; bottom: 0; left: 38.5%; border: 2px solid rgba(255,255,255,.58); border-bottom: 0; background: rgba(16,31,40,.25); }
+    .visual-caption { position: absolute; left: 20px; right: 20px; bottom: 18px; padding: 13px 15px; background: rgba(12,25,33,.78); backdrop-filter: blur(8px); }
+    .visual-caption strong { display: block; font-size: .86rem; letter-spacing: .08em; text-transform: uppercase; }
+    .visual-caption span { color: #c0c8cb; font-size: .74rem; }
+    .visual-stamp { position: absolute; top: 2%; right: 0; width: 110px; height: 110px; padding: 15px; border: 1px solid rgba(255,255,255,.4); border-radius: 50%; display: grid; place-items: center; background: var(--orange); text-align: center; color: white; font-size: .7rem; font-weight: 900; letter-spacing: .07em; line-height: 1.25; transform: rotate(8deg); }
+    .principles { background: #fff; border-bottom: 1px solid var(--line); }
+    .principles-inner { min-height: 91px; display: grid; grid-template-columns: repeat(3,1fr); align-items: center; }
+    .principle { padding: 16px 25px; border-right: 1px solid var(--line); display: flex; align-items: center; gap: 13px; }
+    .principle:first-child { padding-left: 0; }
+    .principle:last-child { border: 0; }
+    .principle-icon { color: var(--orange); font-size: 1.35rem; font-weight: 900; }
+    .principle strong { display: block; font-size: .87rem; }
+    .principle small { color: var(--muted); font-size: .75rem; }
+    section { padding: 100px 0; scroll-margin-top: 88px; }
+    .section-heading { max-width: 780px; margin-bottom: 38px; }
+    .section-heading h2, .about-copy h2, .contact-heading h2 { margin: 0 0 14px; font-size: clamp(2.55rem, 4.7vw, 4rem); line-height: 1.02; letter-spacing: -.05em; font-weight: 800; }
+    .section-heading p { max-width: 640px; margin-bottom: 0; color: var(--muted); }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .service-card { min-height: 210px; padding: 24px; background: #fff; border: 1px solid var(--line); position: relative; transition: transform .2s, box-shadow .2s; }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(17,32,42,.08); }
+    .service-top { display: flex; justify-content: space-between; align-items: start; }
+    .service-symbol { width: 44px; height: 44px; display: grid; place-items: center; color: var(--orange); background: #fff0e9; border-radius: 3px; font-size: 1.25rem; font-weight: 800; }
+    .service-no { color: #9aa3a6; font-size: .7rem; font-weight: 850; letter-spacing: .1em; }
+    .service-card h3 { margin: 27px 0 7px; font-size: 1.12rem; line-height: 1.2; }
+    .service-card p { margin-bottom: 0; color: var(--muted); font-size: .83rem; }
+    .projects-section { color: white; background: #1a2a35; }
+    .projects-section .section-heading p { color: #b9c3c7; }
+    .projects-section .eyebrow { color: var(--orange-light); }
+    .project-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .project-card { min-width: 0; }
+    .project-photo { min-height: 285px; position: relative; overflow: hidden; display: flex; align-items: end; padding: 16px; background: linear-gradient(145deg,#76827d,#445d61 52%,#203943); }
+    .project-card:nth-child(2) .project-photo { background: linear-gradient(145deg,#987d66,#60736e 52%,#293d46); }
+    .project-card:nth-child(3) .project-photo { background: linear-gradient(145deg,#82908d,#65726e 52%,#253b43); }
+    .project-photo::before { content: ""; position: absolute; inset: 12% 12% 0; border: 1px solid rgba(255,255,255,.47); border-bottom: 0; opacity: .7; }
+    .project-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg,rgba(6,15,20,.44),transparent 60%); }
+    .photo-placeholder { z-index: 1; padding: 8px 10px; color: var(--navy); background: rgba(255,255,255,.9); font-size: .65rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+    .project-caption { padding-top: 15px; }
+    .project-caption h3 { margin-bottom: 4px; font-size: 1.03rem; }
+    .project-caption p { margin: 0; color: #b9c3c7; font-size: .8rem; }
+    .projects-note { margin-top: 30px; color: #aebbc0; font-size: .76rem; }
+    .about-section { background: #ebeae5; }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 74px; }
+    .about-visual { min-height: 420px; position: relative; overflow: hidden; background: linear-gradient(150deg,#8b9288,#465e63 55%,#203942); }
+    .about-visual::before { content: ""; position: absolute; inset: 13% 15% 0; border: 1px solid rgba(255,255,255,.52); border-bottom: 0; background: linear-gradient(135deg,rgba(255,255,255,.12),transparent); clip-path: polygon(0 30%,50% 0,100% 30%,100% 100%,0 100%); }
+    .about-visual::after { content: "OTERO BUILT"; position: absolute; left: 20px; bottom: 18px; color: white; font-size: .73rem; font-weight: 900; letter-spacing: .2em; }
+    .about-copy p { color: #57656d; }
+    .about-points { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; margin-top: 24px; }
+    .about-point { padding-top: 12px; border-top: 1px solid #cfd3ce; display: flex; gap: 10px; font-size: .82rem; font-weight: 750; }
+    .about-point b { color: var(--orange); }
+    .process-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 42px; }
+    .process-step { padding-top: 18px; border-top: 2px solid var(--line); }
+    .process-step .step-no { color: var(--orange); font-size: .75rem; font-weight: 900; letter-spacing: .12em; }
+    .process-step h3 { margin: 13px 0 7px; font-size: 1.06rem; }
+    .process-step p { margin: 0; color: var(--muted); font-size: .84rem; }
+    .contact-section { padding-top: 0; }
+    .contact-panel { display: grid; grid-template-columns: .9fr 1.1fr; color: white; background: var(--navy); }
+    .contact-info { padding: 48px 42px; background: #1a2a35; }
+    .contact-info .eyebrow { color: var(--orange-light); }
+    .contact-heading h2 { font-size: clamp(2.35rem, 4vw, 3.5rem); }
+    .contact-heading p { color: #bdc8cb; }
+    .contact-lines { margin-top: 32px; }
+    .contact-line { padding: 14px 0; border-top: 1px solid rgba(255,255,255,.15); }
+    .contact-line small { display: block; color: #aab8bc; font-size: .66rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .contact-line strong, .contact-line a { display: inline-block; margin-top: 4px; color: white; font-size: .95rem; font-weight: 650; text-decoration: none; }
+    .contact-actions { margin-top: 25px; display: flex; flex-wrap: wrap; gap: 9px; }
+    .contact-actions .btn { flex: 1 1 auto; }
+    .socials { margin-top: 21px; }
+    .socials small { display: block; margin-bottom: 11px; color: #aab8bc; font-size: .66rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .social-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .social-link { padding: 8px 11px; border: 1px solid rgba(255,255,255,.23); color: white; font-size: .75rem; text-decoration: none; }
+    .social-link.placeholder { color: #b3bfc2; border-style: dashed; }
+    .quote-form { padding: 48px 42px; }
+    .quote-form h3 { margin: 0 0 5px; font-size: 1.35rem; }
+    .quote-form > p { margin-bottom: 24px; color: #bdc8cb; font-size: .83rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { min-width: 0; }
+    .field.full { grid-column: 1/-1; }
+    .field label { display: block; margin-bottom: 6px; color: #d6dddf; font-size: .73rem; font-weight: 750; }
+    .field input, .field select, .field textarea { width: 100%; border: 1px solid #44545e; border-radius: 2px; padding: 12px 13px; outline: none; color: #fff; background: #1b2c37; font-size: .83rem; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--orange-light); box-shadow: 0 0 0 2px rgba(255,155,107,.15); }
+    .field input::placeholder, .field textarea::placeholder { color: #9ca9ae; }
+    .field select option { color: white; background: #1b2c37; }
+    .field textarea { min-height: 100px; resize: vertical; }
+    .form-submit { margin-top: 16px; }
+    .form-note, .form-status { margin: 12px 0 0; color: #aebbc0; font-size: .72rem; }
+    .form-status { color: #ffba99; min-height: 1.2em; }
+    footer { padding: 23px 0 28px; color: #c3cccf; background: #0d171e; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: .73rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 16px; }
+    .footer-links a { color: #d7dfe1; text-decoration: none; }
+    .link-pending { opacity: .58; pointer-events: none; cursor: not-allowed; filter: grayscale(.2); }
+    .social-link.placeholder { opacity: .68; pointer-events: none; cursor: default; }
+    @media(max-width: 900px) {
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: .8rem; }
+      .nav-right { gap: 13px; }
+      .hero-grid { gap: 20px; min-height: 550px; }
+      .visual-frame { height: 320px; }
+      .service-grid { grid-template-columns: repeat(2,1fr); }
+      .about-grid { gap: 40px; }
+      .contact-info, .quote-form { padding: 38px 30px; }
+    }
+    @media(max-width: 680px) {
+      .wrap { width: min(100% - 34px, 540px); }
+      .topbar-inner { justify-content: center; min-height: 34px; font-size: .67rem; }
+      .topbar-inner > a { display: none; }
+      .nav { min-height: 72px; }
+      .brand-mark { width: 38px; height: 38px; }
+      .brand-name { font-size: .84rem; }
+      .nav-right { gap: 8px; }
+      .nav-links a:not(.nav-quote) { display: none; }
+      .nav-quote { min-height: 39px; padding: 0 12px; font-size: .75rem; }
+      .lang-switch { margin-left: 1px; }
+      .hero-grid { grid-template-columns: 1fr; min-height: 0; padding-top: 59px; padding-bottom: 52px; gap: 30px; }
+      h1 { font-size: clamp(3.3rem, 14vw, 5rem); }
+      .hero-copy { font-size: .95rem; }
+      .hero-visual { min-height: 305px; }
+      .visual-frame { width: 86%; height: 270px; }
+      .visual-stamp { width: 91px; height: 91px; font-size: .58rem; }
+      .hero-actions { gap: 9px; }
+      .hero-actions .btn { flex: 1 1 145px; padding: 0 12px; font-size: .75rem; }
+      .hero-meta { gap: 10px 17px; font-size: .7rem; }
+      .principles-inner { grid-template-columns: 1fr; padding: 8px 0; }
+      .principle { padding: 11px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .principle:last-child { border-bottom: 0; }
+      section { padding: 72px 0; }
+      .section-heading h2, .about-copy h2 { font-size: clamp(2.45rem, 11vw, 3.4rem); }
+      .service-grid { grid-template-columns: 1fr; gap: 10px; }
+      .service-card { min-height: 175px; padding: 21px; }
+      .service-card h3 { margin-top: 18px; }
+      .project-grid { grid-template-columns: 1fr; gap: 25px; }
+      .project-photo { min-height: 255px; }
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .about-visual { min-height: 280px; }
+      .about-points { gap: 12px; }
+      .process-grid { grid-template-columns: 1fr; gap: 24px; }
+      .contact-section { padding-top: 0; }
+      .contact-panel { grid-template-columns: 1fr; }
+      .contact-info, .quote-form { padding: 31px 23px; }
+      .contact-actions .btn { flex: 1 1 calc(50% - 9px); padding: 0 10px; font-size: .72rem; }
+      .contact-actions .btn:last-child { flex-basis: 100%; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+    @media(prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <span class="topbar-location"><span class="pin">⌖</span><span data-en="Serving Indianapolis, Indiana" data-es="Sirviendo a Indianapolis, Indiana">Serving Indianapolis, Indiana</span></span>
+      <a href="#contact" data-en="Let's talk about your project ↗" data-es="Hablemos de tu proyecto ↗">Let's talk about your project ↗</a>
+    </div>
+  </div>
+  <header>
+    <nav class="wrap nav" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="Otero Built home">
+        <span class="brand-mark"><img src="assets/oterobuilt-mark.png" alt=""></span>
+        <span class="brand-name"><span class="brand-line"><span>OTERO</span><span class="brand-built">BUILT</span></span><small>BUILT TO LAST</small></span>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#services" data-en="Services" data-es="Servicios">Services</a>
+          <a href="#work" data-en="Our Work" data-es="Proyectos">Our Work</a>
+          <a href="#about" data-en="About" data-es="Nosotros">About</a>
+          <a class="btn btn-orange btn-small nav-quote" href="#contact" data-en="Get a Quote ↗" data-es="Cotización ↗">Get a Quote ↗</a>
+        </div>
+        <div class="lang-switch" aria-label="Language">
+          <button type="button" class="active" data-lang-choice="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-choice="es" aria-pressed="false">ES</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div class="hero-content">
+          <div class="eyebrow" data-en="Indianapolis Construction & Remodeling" data-es="Construcción y remodelación en Indianapolis">Indianapolis Construction &amp; Remodeling</div>
+          <h1><span data-en="Quality work." data-es="Calidad en cada trabajo.">Quality work.</span><br><em data-en="Built to Last." data-es="Hecho para durar.">Built to Last.</em></h1>
+          <p class="hero-copy" data-en="OTERO BUILT delivers professional remodeling and roofing services with a commitment to craftsmanship, clear communication, and work made to stand the test of time." data-es="OTERO BUILT ofrece servicios profesionales de remodelación y roofing, con compromiso con la calidad, comunicación clara y trabajo hecho para durar.">OTERO BUILT delivers professional remodeling and roofing services with a commitment to craftsmanship, clear communication, and work made to stand the test of time.</p>
+          <div class="hero-actions">
+            <a class="btn btn-orange" href="#contact" data-phone-action data-en="Call Now" data-es="Llamar ahora">Call Now</a>
+            <a class="btn btn-outline" href="#quoteForm" data-en="Request a Free Estimate" data-es="Solicitar una cotización gratis">Request a Free Estimate</a>
+          </div>
+          <div class="hero-meta">
+            <span><b class="check">✓</b><span data-en="Proudly serving Indianapolis, IN" data-es="Al servicio de Indianapolis, IN">Proudly serving Indianapolis, IN</span></span>
+            <span><b class="check">✓</b><span data-en="Residential remodeling & roofing" data-es="Remodelación residencial y roofing">Residential remodeling &amp; roofing</span></span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Construction inspired illustration">
+          <div class="visual-frame"><div class="blueprint-grid"></div><div class="building-shape"></div><div class="visual-caption"><strong>OTERO BUILT</strong><span data-en="Quality. Commitment. Built to Last." data-es="Calidad. Compromiso. Hecho para durar.">Quality. Commitment. Built to Last.</span></div></div>
+          <div class="visual-stamp" data-en="CRAFTED WITH CARE" data-es="HECHO CON CUIDADO">CRAFTED<br>WITH CARE</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="principles">
+      <div class="wrap principles-inner">
+        <div class="principle"><span class="principle-icon">⌂</span><div><strong data-en="Built with care" data-es="Construido con cuidado">Built with care</strong><small data-en="Attention to the details that matter" data-es="Atención a los detalles importantes">Attention to the details that matter</small></div></div>
+        <div class="principle"><span class="principle-icon">✓</span><div><strong data-en="Clear communication" data-es="Comunicación clara">Clear communication</strong><small data-en="A straightforward project experience" data-es="Un proceso de trabajo claro">A straightforward project experience</small></div></div>
+        <div class="principle"><span class="principle-icon">▱</span><div><strong data-en="Made to last" data-es="Hecho para durar">Made to last</strong><small data-en="Quality workmanship from start to finish" data-es="Calidad de principio a fin">Quality workmanship from start to finish</small></div></div>
+      </div>
+    </div>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-heading"><div class="eyebrow" data-en="What we do" data-es="Nuestros servicios">What we do</div><h2 data-en="Professional work for the places you call home." data-es="Trabajo profesional para los espacios que llamas hogar.">Professional work for the places you call home.</h2><p data-en="From interior updates to roofing projects, OTERO BUILT helps Indianapolis homeowners take care of the work that matters." data-es="Desde mejoras interiores hasta proyectos de roofing, OTERO BUILT ayuda a propietarios de Indianapolis con los trabajos que importan.">From interior updates to roofing projects, OTERO BUILT helps Indianapolis homeowners take care of the work that matters.</p></div>
+        <div class="service-grid">
+          <article class="service-card"><div class="service-top"><span class="service-symbol">⌂</span><span class="service-no">01</span></div><h3 data-en="General Remodeling" data-es="Remodelación general">General Remodeling</h3><p data-en="Thoughtful updates and improvements tailored to your home." data-es="Mejoras y actualizaciones pensadas para tu hogar.">Thoughtful updates and improvements tailored to your home.</p></article>
+          <article class="service-card"><div class="service-top"><span class="service-symbol">▤</span><span class="service-no">02</span></div><h3 data-en="Drywall / Sheetrock" data-es="Drywall / Sheetrock">Drywall / Sheetrock</h3><p data-en="Drywall installation, repair, and finishing for a clean result." data-es="Instalación, reparación y acabado de drywall para un resultado limpio.">Drywall installation, repair, and finishing for a clean result.</p></article>
+          <article class="service-card"><div class="service-top"><span class="service-symbol">▣</span><span class="service-no">03</span></div><h3 data-en="Window Installation" data-es="Instalación de ventanas">Window Installation</h3><p data-en="Careful window replacement and installation for your project." data-es="Reemplazo e instalación cuidadosa de ventanas para tu proyecto.">Careful window replacement and installation for your project.</p></article>
+          <article class="service-card"><div class="service-top"><span class="service-symbol">▯</span><span class="service-no">04</span></div><h3 data-en="Door Installation" data-es="Instalación de puertas">Door Installation</h3><p data-en="Interior and exterior door installation with a precise fit." data-es="Instalación de puertas interiores y exteriores con un ajuste preciso.">Interior and exterior door installation with a precise fit.</p></article>
+          <article class="service-card"><div class="service-top"><span class="service-symbol">▥</span><span class="service-no">05</span></div><h3 data-en="Flooring Installation" data-es="Instalación de pisos">Flooring Installation</h3><p data-en="New flooring installation to refresh and finish your space." data-es="Instalación de pisos nuevos para renovar y terminar tu espacio.">New flooring installation to refresh and finish your space.</p></article>
+          <article class="service-card"><div class="service-top"><span class="service-symbol">⌂</span><span class="service-no">06</span></div><h3 data-en="Roofing Repairs" data-es="Reparaciones de roofing">Roofing Repairs</h3><p data-en="Roof repairs that address the problem and protect your home." data-es="Reparaciones de techo para atender el problema y proteger tu hogar.">Roof repairs that address the problem and protect your home.</p></article>
+          <article class="service-card"><div class="service-top"><span class="service-symbol">⌃</span><span class="service-no">07</span></div><h3 data-en="Full Roof Replacement" data-es="Reemplazo completo de techo">Full Roof Replacement</h3><p data-en="Complete roof replacement planned around your property's needs." data-es="Reemplazo completo del techo según las necesidades de tu propiedad.">Complete roof replacement planned around your property's needs.</p></article>
+          <article class="service-card"><div class="service-top"><span class="service-symbol">▱</span><span class="service-no">08</span></div><h3 data-en="TPO Roofing" data-es="Roofing TPO">TPO Roofing</h3><p data-en="TPO roofing installation and work for applicable flat roofs." data-es="Instalación y trabajos de roofing TPO para techos planos adecuados.">TPO roofing installation and work for applicable flat roofs.</p></article>
+          <article class="service-card"><div class="service-top"><span class="service-symbol">▨</span><span class="service-no">09</span></div><h3 data-en="Shingle Roofing" data-es="Roofing de shingles">Shingle Roofing</h3><p data-en="Shingle roofing installation and replacement with care." data-es="Instalación y reemplazo cuidadoso de techos de shingles.">Shingle roofing installation and replacement with care.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section" id="work">
+      <div class="wrap">
+        <div class="section-heading"><div class="eyebrow" data-en="Selected projects" data-es="Proyectos realizados">Selected projects</div><h2 data-en="A closer look at our work." data-es="Mira de cerca nuestro trabajo.">A closer look at our work.</h2><p data-en="This gallery is ready for real project photos. Add images, project names, and brief details as your portfolio grows." data-es="Esta galería está lista para fotos reales. Agrega imágenes, nombres y detalles breves a medida que crezca tu portafolio.">This gallery is ready for real project photos. Add images, project names, and brief details as your portfolio grows.</p></div>
+        <div class="project-grid">
+          <article class="project-card"><div class="project-photo"><span class="photo-placeholder" data-en="Add a project photo" data-es="Agrega una foto del proyecto">Add a project photo</span></div><div class="project-caption"><h3 data-en="Remodeling Project" data-es="Proyecto de remodelación">Remodeling Project</h3><p data-en="Indianapolis, IN · Add project details" data-es="Indianapolis, IN · Agrega detalles">Indianapolis, IN · Add project details</p></div></article>
+          <article class="project-card"><div class="project-photo"><span class="photo-placeholder" data-en="Add a project photo" data-es="Agrega una foto del proyecto">Add a project photo</span></div><div class="project-caption"><h3 data-en="Roofing Project" data-es="Proyecto de roofing">Roofing Project</h3><p data-en="Indianapolis, IN · Add project details" data-es="Indianapolis, IN · Agrega detalles">Indianapolis, IN · Add project details</p></div></article>
+          <article class="project-card"><div class="project-photo"><span class="photo-placeholder" data-en="Add a project photo" data-es="Agrega una foto del proyecto">Add a project photo</span></div><div class="project-caption"><h3 data-en="Interior Finish" data-es="Acabado interior">Interior Finish</h3><p data-en="Indianapolis, IN · Add project details" data-es="Indianapolis, IN · Agrega detalles">Indianapolis, IN · Add project details</p></div></article>
+        </div>
+        <p class="projects-note" data-en="Project examples and photos will be added by OTERO BUILT. No sample customer work is represented here." data-es="OTERO BUILT agregará ejemplos y fotos de proyectos. Aquí no se presentan trabajos ficticios de clientes.">Project examples and photos will be added by OTERO BUILT. No sample customer work is represented here.</p>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="wrap about-grid">
+        <div class="about-visual" role="img" aria-label="OTERO BUILT construction illustration"></div>
+        <div class="about-copy"><div class="eyebrow" data-en="About OTERO BUILT" data-es="Acerca de OTERO BUILT">About OTERO BUILT</div><h2 data-en="Our commitment is in every detail." data-es="Nuestro compromiso está en cada detalle.">Our commitment is in every detail.</h2><p data-en="OTERO BUILT is an Indianapolis construction and remodeling company focused on quality workmanship, dependable communication, and lasting results. From drywall and flooring to roofing, we approach every project with care and professionalism." data-es="OTERO BUILT es una compañía de construcción y remodelación en Indianapolis enfocada en la calidad, la comunicación y resultados duraderos. Desde drywall y pisos hasta roofing, atendemos cada proyecto con cuidado y profesionalismo.">OTERO BUILT is an Indianapolis construction and remodeling company focused on quality workmanship, dependable communication, and lasting results. From drywall and flooring to roofing, we approach every project with care and professionalism.</p><p data-en="We believe good work should look right, perform well, and hold up over time. That's the standard behind our promise: Built to Last." data-es="Creemos que un buen trabajo debe verse bien, funcionar bien y resistir con el tiempo. Ese es el compromiso detrás de nuestra promesa: Built to Last.">We believe good work should look right, perform well, and hold up over time. That's the standard behind our promise: Built to Last.</p><div class="about-points"><div class="about-point"><b>✓</b><span data-en="Quality-minded workmanship" data-es="Trabajo enfocado en la calidad">Quality-minded workmanship</span></div><div class="about-point"><b>✓</b><span data-en="Professional service" data-es="Servicio profesional">Professional service</span></div><div class="about-point"><b>✓</b><span data-en="Clear project communication" data-es="Comunicación clara">Clear project communication</span></div><div class="about-point"><b>✓</b><span data-en="Indianapolis area focus" data-es="Enfoque en Indianapolis y alrededores">Indianapolis area focus</span></div></div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-heading"><div class="eyebrow" data-en="How it works" data-es="Cómo trabajamos">How it works</div><h2 data-en="A clear process from the first conversation." data-es="Un proceso claro desde la primera conversación.">A clear process from the first conversation.</h2><p data-en="Tell us what you need. We'll discuss the project and next steps with you." data-es="Cuéntanos qué necesitas. Conversaremos contigo sobre el proyecto y los siguientes pasos.">Tell us what you need. We'll discuss the project and next steps with you.</p></div>
+        <div class="process-grid">
+          <article class="process-step"><span class="step-no">STEP 01</span><h3 data-en="Tell us about your project" data-es="Cuéntanos sobre tu proyecto">Tell us about your project</h3><p data-en="Call or send a quote request with a few details about the work." data-es="Llama o envía una solicitud de cotización con algunos detalles.">Call or send a quote request with a few details about the work.</p></article>
+          <article class="process-step"><span class="step-no">STEP 02</span><h3 data-en="Discuss the scope" data-es="Definimos el alcance">Discuss the scope</h3><p data-en="We'll connect with you to understand the job and talk through what comes next." data-es="Nos comunicaremos contigo para entender el trabajo y hablar de los siguientes pasos.">We'll connect with you to understand the job and talk through what comes next.</p></article>
+          <article class="process-step"><span class="step-no">STEP 03</span><h3 data-en="Build with care" data-es="Construimos con cuidado">Build with care</h3><p data-en="The goal: professional workmanship and a finished result made to last." data-es="La meta: trabajo profesional y un resultado final hecho para durar.">The goal: professional workmanship and a finished result made to last.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="wrap contact-panel">
+        <div class="contact-info">
+          <div class="contact-heading"><div class="eyebrow" data-en="Get in touch" data-es="Contáctanos">Get in touch</div><h2 data-en="Let's get your project moving." data-es="Pongamos tu proyecto en marcha.">Let's get your project moving.</h2><p data-en="Contact OTERO BUILT to discuss your remodeling or roofing project in Indianapolis." data-es="Contacta a OTERO BUILT para conversar sobre tu proyecto de remodelación o roofing en Indianapolis.">Contact OTERO BUILT to discuss your remodeling or roofing project in Indianapolis.</p></div>
+          <div class="contact-lines">
+            <div class="contact-line"><small data-en="Call" data-es="Teléfono">Call</small><a href="#contact" data-contact-phone>[Add your phone number]</a></div>
+            <div class="contact-line"><small data-en="Email" data-es="Correo electrónico">Email</small><a href="#contact" data-contact-email>[Add your business email]</a></div>
+            <div class="contact-line"><small data-en="Service area" data-es="Área de servicio">Service area</small><strong>Indianapolis, Indiana</strong></div>
+          </div>
+          <div class="contact-actions">
+            <a class="btn btn-orange btn-small" href="#contact" data-phone-action data-en="Call Now" data-es="Llamar ahora">Call Now</a>
+            <a class="btn btn-outline btn-small" href="#contact" data-email-action data-en="Email Us" data-es="Escríbenos">Email Us</a>
+            <a class="btn btn-light btn-small" href="#quoteForm" data-en="Request a Free Estimate ↗" data-es="Solicitar cotización gratis ↗">Request a Free Estimate ↗</a>
+          </div>
+          <div class="socials"><small data-en="Follow OTERO BUILT" data-es="Sigue a OTERO BUILT">Follow OTERO BUILT</small><div class="social-links">
+            <a class="social-link" href="#contact" data-social="facebook">[Add Facebook URL]</a>
+            <a class="social-link placeholder" href="#contact" data-social="instagram">[Add Instagram URL]</a>
+            <a class="social-link" href="#contact" data-social="youtube">YouTube</a>
+            <a class="social-link placeholder" href="#contact" data-social="tiktok">[Add TikTok URL]</a>
+          </div></div>
+        </div>
+        <form class="quote-form" id="quoteForm">
+          <h3 data-en="Request a Free Estimate" data-es="Solicitar una cotización gratis">Request a Free Estimate</h3>
+          <p data-en="Share a few details and we'll follow up." data-es="Comparte algunos detalles y nos comunicaremos contigo.">Share a few details and we'll follow up.</p>
+          <div class="form-grid">
+            <div class="field"><label for="customerName" data-en="Your name" data-es="Tu nombre">Your name</label><input id="customerName" name="name" autocomplete="name" required data-placeholder-en="Name" data-placeholder-es="Nombre" placeholder="Name"></div>
+            <div class="field"><label for="customerPhone" data-en="Phone number" data-es="Teléfono">Phone number</label><input id="customerPhone" name="phone" type="tel" autocomplete="tel" data-placeholder-en="Phone" data-placeholder-es="Teléfono" placeholder="Phone"></div>
+            <div class="field full"><label for="customerEmail" data-en="Email address" data-es="Correo electrónico">Email address</label><input id="customerEmail" name="email" type="email" autocomplete="email" required data-placeholder-en="Email" data-placeholder-es="Correo electrónico" placeholder="Email"></div>
+            <div class="field full"><label for="serviceType" data-en="Service needed" data-es="Servicio que necesitas">Service needed</label><select id="serviceType" name="service" required><option value="" data-en="Select a service" data-es="Selecciona un servicio">Select a service</option><option data-en="General Remodeling" data-es="Remodelación general">General Remodeling</option><option data-en="Drywall / Sheetrock" data-es="Drywall / Sheetrock">Drywall / Sheetrock</option><option data-en="Window Installation" data-es="Instalación de ventanas">Window Installation</option><option data-en="Door Installation" data-es="Instalación de puertas">Door Installation</option><option data-en="Flooring Installation" data-es="Instalación de pisos">Flooring Installation</option><option data-en="Roofing Repairs" data-es="Reparaciones de roofing">Roofing Repairs</option><option data-en="Full Roof Replacement" data-es="Reemplazo completo de techo">Full Roof Replacement</option><option data-en="TPO Roofing" data-es="Roofing TPO">TPO Roofing</option><option data-en="Shingle Roofing" data-es="Roofing de shingles">Shingle Roofing</option><option data-en="Other" data-es="Otro">Other</option></select></div>
+            <div class="field full"><label for="projectMessage" data-en="Tell us about the project" data-es="Cuéntanos sobre el proyecto">Tell us about the project</label><textarea id="projectMessage" name="message" required data-placeholder-en="What work are you looking to have done?" data-placeholder-es="¿Qué trabajo necesitas realizar?" placeholder="What work are you looking to have done?"></textarea></div>
+          </div>
+          <button class="btn btn-orange form-submit" type="submit" data-en="Send Quote Request ↗" data-es="Enviar solicitud ↗">Send Quote Request ↗</button>
+          <p class="form-note" data-en="The quote form opens an email draft on your device. Add your business email in the setup section of this file to activate it." data-es="El formulario abre un borrador de correo en tu dispositivo. Agrega el correo de tu negocio en la sección de configuración de este archivo para activarlo.">The quote form opens an email draft on your device. Add your business email in the setup section of this file to activate it.</p>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row"><span>© <span id="year"></span> OTERO BUILT · Built to Last.</span><div class="footer-links"><a href="#services" data-en="Services" data-es="Servicios">Services</a><a href="#work" data-en="Our Work" data-es="Proyectos">Our Work</a><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></div></div>
+  </footer>
+
+  <script>
+    /* Owner-provided contact details. Blank social URLs stay as disabled placeholders. */
+    const OTERO_CONTACT = {
+      phone: "317-840-8925",
+      email: "oterobuilt@gmail.com",
+      facebook: "http://www.facebook.com/share/1H2Tq1quNU/",
+      instagram: "",   // Add the profile URL when available
+      youtube: "https://www.youtube.com/@DRACK-IRØNŞIDE",
+      tiktok: ""       // Add the profile URL when available
+    };
+
+    const currentYear = document.getElementById("year");
+    currentYear.textContent = new Date().getFullYear();
+    let currentLanguage = "en";
+
+    function setLanguage(language) {
+      currentLanguage = language;
+      document.documentElement.lang = language;
+      document.querySelectorAll("[data-en][data-es]").forEach((element) => {
+        element.textContent = element.dataset[language];
+      });
+      document.querySelectorAll("[data-placeholder-en][data-placeholder-es]").forEach((element) => {
+        element.placeholder = element.dataset[`placeholder${language === "en" ? "En" : "Es"}`];
+      });
+      document.querySelectorAll("[data-lang-choice]").forEach((button) => {
+        const isActive = button.dataset.langChoice === language;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
+      updateContactLinks();
+    }
+
+    function updateContactLinks() {
+      const socialLabels = { facebook: "Facebook", instagram: "Instagram", youtube: "YouTube", tiktok: "TikTok" };
+      const phoneLink = document.querySelector("[data-contact-phone]");
+      const callActions = document.querySelectorAll("[data-phone-action]");
+      if (OTERO_CONTACT.phone.trim()) {
+        const cleanPhone = OTERO_CONTACT.phone.replace(/[^+\d]/g, "");
+        const dialNumber = cleanPhone.startsWith("+") ? cleanPhone : `+1${cleanPhone}`;
+        phoneLink.href = `tel:${dialNumber}`;
+        phoneLink.textContent = OTERO_CONTACT.phone;
+        phoneLink.classList.remove("link-pending");
+        phoneLink.removeAttribute("aria-disabled");
+        callActions.forEach((action) => {
+          action.href = `tel:${dialNumber}`;
+          action.textContent = currentLanguage === "en" ? "Call Now" : "Llamar ahora";
+          action.classList.remove("link-pending");
+          action.removeAttribute("aria-disabled");
+        });
+      } else {
+        phoneLink.href = "#contact";
+        phoneLink.textContent = currentLanguage === "en" ? "[Add your phone number]" : "[Agrega tu número de teléfono]";
+        phoneLink.classList.add("link-pending");
+        phoneLink.setAttribute("aria-disabled", "true");
+        callActions.forEach((action) => {
+          action.href = "#contact";
+          action.textContent = currentLanguage === "en" ? "Add phone number to activate" : "Agrega un teléfono para activar";
+          action.classList.add("link-pending");
+          action.setAttribute("aria-disabled", "true");
+        });
+      }
+
+      const emailLink = document.querySelector("[data-contact-email]");
+      const emailActions = document.querySelectorAll("[data-email-action]");
+      if (OTERO_CONTACT.email.trim()) {
+        emailLink.href = `mailto:${OTERO_CONTACT.email.trim()}`;
+        emailLink.textContent = OTERO_CONTACT.email.trim();
+        emailLink.classList.remove("link-pending");
+        emailLink.removeAttribute("aria-disabled");
+        emailActions.forEach((action) => {
+          action.href = `mailto:${OTERO_CONTACT.email.trim()}`;
+          action.textContent = currentLanguage === "en" ? "Email Us" : "Escríbenos";
+          action.classList.remove("link-pending");
+          action.removeAttribute("aria-disabled");
+        });
+      } else {
+        emailLink.href = "#contact";
+        emailLink.textContent = currentLanguage === "en" ? "[Add your business email]" : "[Agrega tu correo de negocio]";
+        emailLink.classList.add("link-pending");
+        emailLink.setAttribute("aria-disabled", "true");
+        emailActions.forEach((action) => {
+          action.href = "#contact";
+          action.textContent = currentLanguage === "en" ? "Add email to activate" : "Agrega un correo para activar";
+          action.classList.add("link-pending");
+          action.setAttribute("aria-disabled", "true");
+        });
+      }
+
+      document.querySelectorAll("[data-social]").forEach((link) => {
+        const key = link.dataset.social;
+        const label = socialLabels[key] || key;
+        const url = OTERO_CONTACT[key];
+        if (url && url.trim()) {
+          link.href = url.trim();
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.classList.remove("placeholder");
+          link.removeAttribute("aria-disabled");
+          link.textContent = label;
+        } else {
+          link.href = "#contact";
+          link.removeAttribute("target");
+          link.classList.add("placeholder");
+          link.setAttribute("aria-disabled", "true");
+          link.textContent = currentLanguage === "en"
+          ? `[Add ${label} URL]`
+            : `[Agrega URL de ${label}]`;
+        }
+      });
+    }
+
+    document.querySelectorAll("[data-lang-choice]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.langChoice));
+    });
+
+    document.getElementById("quoteForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const status = document.getElementById("formStatus");
+      if (!OTERO_CONTACT.email.trim()) {
+        status.textContent = currentLanguage === "en"
+          ? "Add your business email in OTERO_CONTACT near the bottom of index.html to activate quote requests."
+          : "Agrega el correo de tu negocio en OTERO_CONTACT, cerca del final de index.html, para activar las solicitudes.";
+        return;
+      }
+      const form = new FormData(event.currentTarget);
+      const subject = encodeURIComponent(`OTERO BUILT quote request — ${form.get("service")}`);
+      const body = encodeURIComponent(
+        `Name: ${form.get("name")}\nPhone: ${form.get("phone") || "Not provided"}\nEmail: ${form.get("email")}\nService: ${form.get("service")}\n\nProject details:\n${form.get("message")}`
+      );
+      window.location.href = `mailto:${OTERO_CONTACT.email.trim()}?subject=${subject}&body=${body}`;
+      status.textContent = currentLanguage === "en"
+        ? "Your email app should open with the quote request ready to send."
+        : "Tu aplicación de correo debe abrirse con la solicitud lista para enviar.";
+    });
+
+    updateContactLinks();
+  </script>
+</body>
+</html>
