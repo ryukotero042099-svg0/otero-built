@@ -1,0 +1,10 @@
+Selección recomendada para OTERO BUILT
+
+Foto principal (roofing-project-01.jpg): foto 04 de la vista previa original. Es la toma más clara y completa del techo metálico.
+Vista complementaria (roofing-project-02.jpg): foto 01 de la vista previa original. Muestra mejor la cumbrera y complementa la foto principal.
+
+Ambas son del mismo techo, así que el fragmento de galería las muestra como un solo proyecto: la principal ocupa la tarjeta y la segunda queda como una miniatura.
+
+Para que aparezcan en la página, sube ambos JPG a la raíz del repositorio y reemplaza en index.html el artículo que actualmente se llama “Roofing Project” por galeria-para-index.html. Después actualiza el texto de la sección y confirma la publicación. El paquete ya no incluye fotos oscuras, muy parecidas o del techo de shingles que todavía aparece en proceso.
+
+Las fotos del paquete tienen los metadatos EXIF retirados. Ningún cambio se ha publicado en GitHub todavía.
